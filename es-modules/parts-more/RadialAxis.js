@@ -690,70 +690,70 @@ addEvent(Tick, 'afterGetLabelPosition', function (e) {
             });
         }
         // Auto alignment for solid-gauges with two labels (#10635)
-        if (align === 'auto' &&
-            axis.tickPositions.length === 2 &&
-            axis.isCircular) {
-            // Angles reduced to 0 - 90 or 180 - 270
-            if (reducedAngle1 > 90 && reducedAngle1 < 180) {
-                reducedAngle1 = 180 - reducedAngle1;
-            }
-            else if (reducedAngle1 > 270 && reducedAngle1 <= 360) {
-                reducedAngle1 = 540 - reducedAngle1;
-            }
-            // Angles reduced to 0 - 180
-            if (reducedAngle2 > 180 && reducedAngle2 <= 360) {
-                reducedAngle2 = 360 - reducedAngle2;
-            }
-            if ((axis.pane.options.startAngle === correctAngle) ||
-                (axis.pane.options.startAngle === correctAngle + 360) ||
-                (axis.pane.options.startAngle === correctAngle - 360)) {
-                labelDir = 'start';
-            }
-            if ((correctAngle >= -90 && correctAngle <= 90) ||
-                (correctAngle >= -360 && correctAngle <= -270) ||
-                (correctAngle >= 270 && correctAngle <= 360)) {
-                align = (labelDir === 'start') ? 'right' : 'left';
-            }
-            else {
-                align = (labelDir === 'start') ? 'left' : 'right';
-            }
-            // For angles beetwen (90 + n * 180) +- 20
-            if (reducedAngle2 > 70 && reducedAngle2 < 110) {
-                align = 'center';
-            }
-            // auto Y translation
-            if (reducedAngle1 < 15 ||
-                (reducedAngle1 >= 180 && reducedAngle1 < 195)) {
-                translateY = labelBBox.height * 0.3;
-            }
-            else if (reducedAngle1 >= 15 && reducedAngle1 <= 35) {
-                translateY = labelDir === 'start' ?
-                    0 : labelBBox.height * 0.75;
-            }
-            else if (reducedAngle1 >= 195 && reducedAngle1 <= 215) {
-                translateY = labelDir === 'start' ?
-                    labelBBox.height * 0.75 : 0;
-            }
-            else if (reducedAngle1 > 35 && reducedAngle1 <= 90) {
-                translateY = labelDir === 'start' ?
-                    -labelBBox.height * 0.25 : labelBBox.height;
-            }
-            else if (reducedAngle1 > 215 && reducedAngle1 <= 270) {
-                translateY = labelDir === 'start' ?
-                    labelBBox.height : -labelBBox.height * 0.25;
-            }
-            // auto X translation
-            if (reducedAngle2 < 15) {
-                translateX = labelDir === 'start' ?
-                    -labelBBox.height * 0.15 : labelBBox.height * 0.15;
-            }
-            else if (reducedAngle2 > 165 && reducedAngle2 <= 180) {
-                translateX = labelDir === 'start' ?
-                    labelBBox.height * 0.15 : -labelBBox.height * 0.15;
-            }
-            label.attr({ align: align });
-            label.translate(translateX, translateY + labelYPosCorrection);
-        }
+        // if (align === 'auto' &&
+        //     axis.tickPositions.length === 2 &&
+        //     axis.isCircular) {
+        //     // Angles reduced to 0 - 90 or 180 - 270
+        //     if (reducedAngle1 > 90 && reducedAngle1 < 180) {
+        //         reducedAngle1 = 180 - reducedAngle1;
+        //     }
+        //     else if (reducedAngle1 > 270 && reducedAngle1 <= 360) {
+        //         reducedAngle1 = 540 - reducedAngle1;
+        //     }
+        //     // Angles reduced to 0 - 180
+        //     if (reducedAngle2 > 180 && reducedAngle2 <= 360) {
+        //         reducedAngle2 = 360 - reducedAngle2;
+        //     }
+        //     if ((axis.pane.options.startAngle === correctAngle) ||
+        //         (axis.pane.options.startAngle === correctAngle + 360) ||
+        //         (axis.pane.options.startAngle === correctAngle - 360)) {
+        //         labelDir = 'start';
+        //     }
+        //     if ((correctAngle >= -90 && correctAngle <= 90) ||
+        //         (correctAngle >= -360 && correctAngle <= -270) ||
+        //         (correctAngle >= 270 && correctAngle <= 360)) {
+        //         align = (labelDir === 'start') ? 'right' : 'left';
+        //     }
+        //     else {
+        //         align = (labelDir === 'start') ? 'left' : 'right';
+        //     }
+        //     // For angles beetwen (90 + n * 180) +- 20
+        //     if (reducedAngle2 > 70 && reducedAngle2 < 110) {
+        //         align = 'center';
+        //     }
+        //     // auto Y translation
+        //     if (reducedAngle1 < 15 ||
+        //         (reducedAngle1 >= 180 && reducedAngle1 < 195)) {
+        //         translateY = labelBBox.height * 0.3;
+        //     }
+        //     else if (reducedAngle1 >= 15 && reducedAngle1 <= 35) {
+        //         translateY = labelDir === 'start' ?
+        //             0 : labelBBox.height * 0.75;
+        //     }
+        //     else if (reducedAngle1 >= 195 && reducedAngle1 <= 215) {
+        //         translateY = labelDir === 'start' ?
+        //             labelBBox.height * 0.75 : 0;
+        //     }
+        //     else if (reducedAngle1 > 35 && reducedAngle1 <= 90) {
+        //         translateY = labelDir === 'start' ?
+        //             -labelBBox.height * 0.25 : labelBBox.height;
+        //     }
+        //     else if (reducedAngle1 > 215 && reducedAngle1 <= 270) {
+        //         translateY = labelDir === 'start' ?
+        //             labelBBox.height : -labelBBox.height * 0.25;
+        //     }
+        //     // auto X translation
+        //     if (reducedAngle2 < 15) {
+        //         translateX = labelDir === 'start' ?
+        //             -labelBBox.height * 0.15 : labelBBox.height * 0.15;
+        //     }
+        //     else if (reducedAngle2 > 165 && reducedAngle2 <= 180) {
+        //         translateX = labelDir === 'start' ?
+        //             labelBBox.height * 0.15 : -labelBBox.height * 0.15;
+        //     }
+        //     label.attr({ align: align });
+        //     label.translate(translateX, translateY + labelYPosCorrection);
+        // }
         e.pos.x = ret.x + labelOptions.x;
         e.pos.y = ret.y + optionsY;
     }

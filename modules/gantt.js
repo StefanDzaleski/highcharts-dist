@@ -1,5 +1,5 @@
 /*
- Highcharts Gantt JS v8.0.2 (2020-03-03)
+ Highcharts Gantt JS v8.0.2 (2020-03-04)
 
  Gantt series
 

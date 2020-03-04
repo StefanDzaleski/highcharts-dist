@@ -1,5 +1,5 @@
 /*
- Highstock JS v8.0.2 (2020-03-03)
+ Highstock JS v8.0.2 (2020-03-04)
 
  Money Flow Index indicator for Highstock
 

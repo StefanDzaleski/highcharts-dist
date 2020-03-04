@@ -1,5 +1,5 @@
 /**
- * @license Highstock JS v8.0.2 (2020-03-03)
+ * @license Highstock JS v8.0.2 (2020-03-04)
  *
  * Advanced Highstock tools
  *
@@ -37,8 +37,7 @@
          *
          * License: www.highcharts.com/license
          */
-        var addEvent = H.addEvent,
-            Chart = H.Chart;
+        var addEvent = H.addEvent, Chart = H.Chart;
         /**
          * The module allows user to enable display chart in full screen mode.
          * Used in StockTools too.
@@ -55,18 +54,18 @@
          * @requires modules/full-screen
          */
         var Fullscreen = /** @class */ (function () {
-                /* *
-                 *
-                 *  Constructors
-                 *
-                 * */
-                function Fullscreen(chart) {
-                    /**
-                     * Chart managed by the fullscreen controller.
-                     * @name Highcharts.Fullscreen#chart
-                     * @type {Highcharts.Chart}
-                     */
-                    this.chart = chart;
+            /* *
+             *
+             *  Constructors
+             *
+             * */
+            function Fullscreen(chart) {
+                /**
+                 * Chart managed by the fullscreen controller.
+                 * @name Highcharts.Fullscreen#chart
+                 * @type {Highcharts.Chart}
+                 */
+                this.chart = chart;
                 /**
                  * The flag is set to `true` when the chart is displayed in
                  * the fullscreen mode.
@@ -128,8 +127,7 @@
              * @requires    modules/full-screen
              */
             Fullscreen.prototype.close = function () {
-                var fullscreen = this,
-                    chart = fullscreen.chart;
+                var fullscreen = this, chart = fullscreen.chart;
                 // Don't fire exitFullscreen() when user exited using 'Escape' button.
                 if (fullscreen.isOpen &&
                     fullscreen.browserProps &&
@@ -156,8 +154,7 @@
              * @requires    modules/full-screen
              */
             Fullscreen.prototype.open = function () {
-                var fullscreen = this,
-                    chart = fullscreen.chart;
+                var fullscreen = this, chart = fullscreen.chart;
                 // Handle exitFullscreen() method when user clicks 'Escape' button.
                 if (fullscreen.browserProps) {
                     fullscreen.unbindFullscreenEvent = H.addEvent(chart.container.ownerDocument, // chart's document
@@ -196,15 +193,8 @@
              * @return {void}
              */
             Fullscreen.prototype.setButtonText = function () {
-                var _a,
-                    _b,
-                    _c,
-                    _d;
-                var chart = this.chart,
-                    exportDivElements = chart.exportDivElements,
-                    exportingOptions = chart.options.exporting,
-                    menuItems = (_b = (_a = exportingOptions) === null || _a === void 0 ? void 0 : _a.buttons) === null || _b === void 0 ? void 0 : _b.contextButton.menuItems,
-                    lang = chart.options.lang;
+                var _a, _b, _c, _d;
+                var chart = this.chart, exportDivElements = chart.exportDivElements, exportingOptions = chart.options.exporting, menuItems = (_b = (_a = exportingOptions) === null || _a === void 0 ? void 0 : _a.buttons) === null || _b === void 0 ? void 0 : _b.contextButton.menuItems, lang = chart.options.lang;
                 if (((_c = exportingOptions) === null || _c === void 0 ? void 0 : _c.menuItemDefinitions) && ((_d = lang) === null || _d === void 0 ? void 0 : _d.exitFullscreen) &&
                     lang.viewFullscreen &&
                     menuItems &&

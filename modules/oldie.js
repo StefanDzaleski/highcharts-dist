@@ -1,5 +1,5 @@
 /*
- Highcharts JS v8.0.2 (2020-03-03)
+ Highcharts JS v8.0.2 (2020-03-04)
 
  Old IE (v6, v7, v8) module for Highcharts v6+.
 

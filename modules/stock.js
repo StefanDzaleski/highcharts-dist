@@ -1,5 +1,5 @@
 /*
- Highstock JS v8.0.2 (2020-03-03)
+ Highstock JS v8.0.2 (2020-03-04)
 
  Highstock as a plugin for Highcharts
 

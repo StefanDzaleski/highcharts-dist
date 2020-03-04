@@ -1,5 +1,5 @@
 /**
- * @license Highstock JS v8.0.2 (2020-03-03)
+ * @license Highstock JS v8.0.2 (2020-03-04)
  * @module highcharts/indicators/ema
  * @requires highcharts
  * @requires highcharts/modules/stock

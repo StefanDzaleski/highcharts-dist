@@ -1,5 +1,5 @@
 /*
- Highmaps JS v8.0.2 (2020-03-03)
+ Highmaps JS v8.0.2 (2020-03-04)
 
  (c) 2011-2018 Torstein Honsi
 

@@ -1,5 +1,5 @@
 /**
- * @license Highstock JS v8.0.2 (2020-03-03)
+ * @license Highstock JS v8.0.2 (2020-03-04)
  *
  * Indicator series type for Highstock
  *
@@ -40,20 +40,16 @@
          * */
         var reduce = H.reduce;
         var reduceArrayMixin = {
-                /**
-                 * Get min value of array filled by OHLC data.
-                 * @private
-                 * @param {Array<*>} arr Array of OHLC points (arrays).
-                 * @param {string} index Index of "low" value in point array.
-                 * @return {number} Returns min value.
-                 */
-                minInArray: function (arr,
-            index) {
-                    return reduce(arr,
-            function (min,
-            target) {
-                        return Math.min(min,
-            target[index]);
+            /**
+             * Get min value of array filled by OHLC data.
+             * @private
+             * @param {Array<*>} arr Array of OHLC points (arrays).
+             * @param {string} index Index of "low" value in point array.
+             * @return {number} Returns min value.
+             */
+            minInArray: function (arr, index) {
+                return reduce(arr, function (min, target) {
+                    return Math.min(min, target[index]);
                 }, Number.MAX_VALUE);
             },
             /**
@@ -96,8 +92,7 @@
          *  !!!!!!! SOURCE GETS TRANSPILED BY TYPESCRIPT. EDIT TS FILE ONLY. !!!!!!!
          *
          * */
-        var isArray = U.isArray,
-            seriesType = U.seriesType;
+        var isArray = U.isArray, seriesType = U.seriesType;
         var getArrayExtremes = reduceArrayMixin.getArrayExtremes;
         /**
          * The Williams %R series type.
@@ -144,23 +139,11 @@
         {
             nameBase: 'Williams %R',
             getValues: function (series, params) {
-                var period = params.period,
-                    xVal = series.xData,
-                    yVal = series.yData,
-                    yValLen = yVal ? yVal.length : 0,
-                    WR = [], // 0- date, 1- Williams %R
-                    xData = [],
-                    yData = [],
-                    slicedY,
-                    close = 3,
-                    low = 2,
-                    high = 1,
-                    extremes,
-                    R,
-                    HH, // Highest high value in period
-                    LL, // Lowest low value in period
-                    CC, // Current close value
-                    i;
+                var period = params.period, xVal = series.xData, yVal = series.yData, yValLen = yVal ? yVal.length : 0, WR = [], // 0- date, 1- Williams %R
+                xData = [], yData = [], slicedY, close = 3, low = 2, high = 1, extremes, R, HH, // Highest high value in period
+                LL, // Lowest low value in period
+                CC, // Current close value
+                i;
                 // Williams %R requires close value
                 if (xVal.length < period ||
                     !isArray(yVal[0]) ||
